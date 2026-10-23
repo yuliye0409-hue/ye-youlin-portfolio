@@ -83,7 +83,7 @@ npm start
 
 ## 部署
 
-静态作品集及分析工作台界面托管于 GitHub Pages；全部本地路径均为相对路径，可部署到仓库子路径。GitHub Pages 不会运行 `server.mjs`，所以网页实采分析仅在本机启动 Node 服务时可用。若要多人在线实采，需另行部署经过公网出口隔离与安全加固的分析 API。
+静态作品集及分析工作台界面通过 GitHub Actions 自动发布至 GitHub Pages；全部本地路径均为相对路径，可部署到仓库子路径。GitHub Pages 不会运行 `server.mjs`，所以网页实采分析仅在本机启动 Node 服务时可用。若要多人在线实采，需另行部署经过公网出口隔离与安全加固的分析 API。
 
 GitHub 仓库：`https://github.com/yuliye0409-hue/ye-youlin-portfolio`
 

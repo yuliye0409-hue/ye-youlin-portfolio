@@ -342,8 +342,9 @@ async function startAnalysis() {
   try {
     if (data.url?.trim()) {
       const response = await fetch('/api/analyze', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url:data.url.trim()}) });
-      analysisPayload = await response.json();
-      if (!response.ok) throw new Error(analysisPayload.error || `网页分析失败（HTTP ${response.status}）。`);
+      const contentType = response.headers.get('content-type') || '';
+      analysisPayload = contentType.includes('application/json') ? await response.json() : null;
+      if (!response.ok) throw new Error(analysisPayload?.error || `网页实采服务当前不可用（HTTP ${response.status}）。GitHub Pages 仅发布静态界面；要分析参考网址，请在项目根目录运行 npm install、npm run browser:install 和 npm start 后访问本地工作台。`);
       modules = Array.isArray(analysisPayload.modules) ? analysisPayload.modules : [];
       if (!modules.length) throw new Error('网页已打开，但未能提取到可编辑的内容区块。');
       generated = true;
@@ -371,8 +372,9 @@ async function startAnalysis() {
     result.scrollIntoView({ behavior:reducedMotion.matches?'instant':'smooth', block:'start' });
     saveState();
   } catch (error) {
-    notify(error.message || '网页分析失败，请检查网址或分析服务');
-    $('[data-analysis-source]').textContent = `本次没有完成网页实测：${error.message || '分析服务不可用'}；旧分析未被覆盖`;
+    const message = error instanceof TypeError && error.message.includes('fetch') ? '无法连接网页实采服务。在线 GitHub Pages 仅托管静态界面；请在项目根目录运行 npm install、npm run browser:install 和 npm start 后使用本地工作台。' : error.message || '网页分析失败，请检查网址或分析服务';
+    notify(message);
+    $('[data-analysis-source]').textContent = `本次没有完成网页实测：${message}；旧分析未被覆盖`;
   } finally {
     submit.disabled = false;
     submit.innerHTML = originalLabel;
