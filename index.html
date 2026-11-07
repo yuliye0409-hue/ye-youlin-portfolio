@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#e7e8ea">
-  <meta name="description" content="叶佑林，跨境电商视觉设计组长。专注键鼠外设品牌视觉、Amazon、独立站、3D 与 AI，以及设计团队管理。">
-  <title>叶佑林 — 跨境电商视觉设计组长</title>
+  <meta name="theme-color" content="#fafafa">
+  <meta name="description" content="Yuli Studio，专注品牌与电商视觉、产品渲染及 AI 探索。在三维卡片展览中探索作品，展开项目，查看完整设计。">
+  <title>Yuli Studio — 视觉设计与产品表达</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="app.js"></script>
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="scroll-showcase.css">
+  <link rel="stylesheet" href="card-stack.css">
+  <link rel="stylesheet" href="ribbon-hero.css">
+  <link rel="stylesheet" href="about-studio.css">
+  <link rel="stylesheet" href="about-video.css">
+  <link rel="stylesheet" href="contact-studio.css">
+  <script defer src="vendor/three-r128.min.js"></script>
+  <script defer src="vendor/gsap-3.12.5.min.js"></script>
+  <script type="module" src="stack-studio.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#home">跳至主要内容</a>
+  <div class="reading-progress" aria-hidden="true"></div>
   <header id="header"></header>
   <main id="main"></main>
   <footer id="footer"></footer>
-  <dialog id="project-dialog" aria-labelledby="project-title"></dialog>
+  <dialog id="image-dialog" aria-label="作品图片放大查看"><div class="lightbox-top"><span class="image-count" aria-live="polite"></span><div class="lightbox-controls"><button class="zoom-image">原尺寸放大 ＋</button><a class="image-original" href="#" target="_blank" rel="noopener noreferrer">单独打开 ↗</a><button class="close-image" aria-label="关闭图片，返回作品详情">×</button></div></div><button class="previous-image" aria-label="上一张作品">←</button><div class="lightbox-media"><img alt=""></div><button class="next-image" aria-label="下一张作品">→</button></dialog>
   <div class="toast" role="status" aria-live="polite"></div>
   <noscript>请启用 JavaScript 查看作品集。也可以访问 <a href="https://yuliye0409-hue.github.io/ye-youlin-resume/">叶佑林的个人简历</a>。</noscript>
 </body>

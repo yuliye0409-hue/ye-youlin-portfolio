@@ -1,7 +1,13 @@
 {
-  "name": "ye-youlin-peripherals-portfolio",
-  "version": "1.0.0",
+  "name": "yuli-studio-portfolio",
+  "version": "10.0.0",
   "private": true,
   "type": "module",
-  "scripts": { "start": "node server.mjs", "test": "node --test" }
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "assets": "node scripts/prepare-artwork.mjs && node scripts/prepare-print-artwork.mjs && node scripts/prepare-stage-artwork.mjs",
+    "pdf": "node scripts/build-portfolio-pdf.mjs",
+    "verify": "node scripts/verify-video.mjs && node scripts/verify-contact.mjs && node scripts/verify-phase-gate.mjs && node scripts/verify-about.mjs && node scripts/verify-entry-carousel.mjs && node scripts/verify-refinements.mjs && node scripts/verify-ribbon.mjs && node scripts/verify-stack.mjs"
+  }
 }
