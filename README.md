@@ -2,9 +2,23 @@
 
 以提供的真实作品图片搭建的静态作品集，保留 madebykota.com 参考中的玻璃胶囊导航和大字排版。白底 Vante Ribbon 首屏与 Opaque Stack 斜向卡片展览共用一个 WebGL canvas。“继续了解”为第二阶段唯一入口：点击前，“关于我”与页脚不参与布局，也不进入滚动范围；点击后才开放白底介绍、IP 视频及经简历核实的工作数据。包含 9 个系列、69 张作品，以及原有 32 页 PDF。无需安装网站运行依赖，也无需构建。
 
+同仓库还包含[网页设计分析工作台](design-analyzer/README.md)，可分析公开网页并生成可编辑的跨 Agent 建站提示词；其中网页实采功能需要 Node.js 与本机 Chromium。
+
 ## 本地预览
 
-在本文件夹执行：
+作品集本身无需安装依赖，直接执行下方命令即可。若要使用分析工作台的网页实采功能，新电脑先安装 Node.js 20 或更新版本，再执行：
+
+```sh
+npm install
+npm run browser:install
+npm start
+```
+
+默认作品集打开 http://127.0.0.1:4173 ，分析工作台打开 http://127.0.0.1:4173/design-analyzer/ 。`npm run browser:install` 为网页实采分析安装 Chromium。不能通过双击 HTML 使用 ES 模块，请用本地 HTTP 服务预览。
+
+运行 `npm test` 可执行项目测试。静态作品集也能直接部署到 GitHub Pages；分析工作台的在线实采 API 需要运行 Node 服务，GitHub Pages 本身不支持该 API。其他电脑可通过 GitHub 仓库克隆、编辑并提交更改。
+
+当前本地作品集预览使用 4180 端口：
 
 ```powershell
 $env:PORT='4180'
@@ -96,6 +110,10 @@ node scripts/verify-stack.mjs
 
 ## 部署
 
-可部署到 GitHub Pages、Cloudflare Pages 或任何静态托管。上传网站入口、JS、CSS、`assets/` 及 `output/pdf/`，保持相对目录即可；可直接使用本文件夹作为站点根目录。下载按钮引用站内相对地址，支持部署到仓库子路径。
+静态作品集及分析工作台界面通过 GitHub Actions 自动发布至 GitHub Pages；全部本地路径均为相对路径，可部署到仓库子路径。GitHub Pages 不会运行 `server.mjs`，所以网页实采分析仅在本机启动 Node 服务时可用。若要多人在线实采，需另行部署经过公网出口隔离与安全加固的分析 API。
 
-本次仅完成本地搭建和验证，没有提交、推送或覆盖公开站点。
+发布源为 `main` 分支；工作流会将当前页面、`assets/` 和 `output/pdf/` 一起发布，图片、视频与 PDF 均使用站内相对地址。
+
+公开网站：https://yuliye0409-hue.github.io/ye-youlin-portfolio/
+
+GitHub 仓库：https://github.com/yuliye0409-hue/ye-youlin-portfolio

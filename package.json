@@ -6,8 +6,10 @@
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test",
+    "browser:install": "playwright install chromium",
     "assets": "node scripts/prepare-artwork.mjs && node scripts/prepare-print-artwork.mjs && node scripts/prepare-stage-artwork.mjs",
     "pdf": "node scripts/build-portfolio-pdf.mjs",
     "verify": "node scripts/verify-video.mjs && node scripts/verify-contact.mjs && node scripts/verify-phase-gate.mjs && node scripts/verify-about.mjs && node scripts/verify-entry-carousel.mjs && node scripts/verify-refinements.mjs && node scripts/verify-ribbon.mjs && node scripts/verify-stack.mjs"
-  }
+  },
+  "dependencies": { "playwright": "^1.56.1" }
 }

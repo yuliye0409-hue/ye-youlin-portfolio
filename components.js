@@ -50,7 +50,7 @@ export function Contact(s,id) {
   return `<section id="${e(id)}" class="contact-section section-space" aria-labelledby="contact-title"><div class="page-width">${sectionLabel(d)}<div class="contact-grid"><div><h2 id="contact-title">${d.title.map(x=>`<span>${e(x)}</span>`).join('')}</h2><p>${e(d.description)}</p><a class="contact-email" href="mailto:${e(s.email)}">${e(s.email)} <span aria-hidden="true">↗</span></a><div class="contact-actions"><button class="button button-light" data-copy="email">复制邮箱 <span aria-hidden="true">⧉</span></button><a class="contact-phone" href="tel:${e(s.phone)}">${e(s.phone)} ↗</a></div></div><a class="contact-resume" href="${e(s.resumePdf)}" target="_blank" rel="noopener noreferrer"><span class="mono">A LITTLE MORE ABOUT ME</span><strong>把简历带走。</strong><span>PDF · 完整职业经历与专业能力</span><span class="resume-circle" aria-hidden="true">↓</span></a></div><div class="footer-wordmark" aria-hidden="true">LET’S CREATE.</div></div></section>`;
 }
 export function Footer(s) {
-  return `<div class="page-width footer-inner"><a href="#home">${e(s.name)} <span class="mono">/ ${e(s.englishName)}</span></a><span class="mono">© 2026 · DESIGNED WITH INTENTION.</span><a href="#home">回到顶部 ↑</a></div>`;
+  return `<div class="page-width footer-inner"><a href="#home">${e(s.name)} <span class="mono">/ ${e(s.englishName)}</span></a><span class="mono">© 2026 · DESIGNED WITH INTENTION.</span><a href="design-analyzer/">网页设计分析工作台 ↗</a><a href="#home">回到顶部 ↑</a></div>`;
 }
 
 export function ProjectDetail(s,p) {
